@@ -1,15 +1,304 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tick Tock Focus</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TickTockFocus — Multi-Step Timer &amp; Routines</title>
+    <meta name="description" content="A Chrome extension that times any routine step by step and notifies you as each step ends. No site access, no account, no tracking.">
+    <link rel="canonical" href="https://ticktockfocus.com/">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#18181b" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="/assets/icon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/assets/icon-16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/icon-512.png">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TickTockFocus">
+    <meta property="og:title" content="TickTockFocus — Multi-Step Timer &amp; Routines">
+    <meta property="og:description" content="A Chrome extension that times any routine step by step and notifies you as each step ends. No site access, no account, no tracking.">
+    <meta property="og:url" content="https://ticktockfocus.com/">
+    <meta property="og:image" content="https://ticktockfocus.com/assets/icon-512.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="TickTockFocus icon: a ring of three colored segments around a clock hand">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="TickTockFocus — Multi-Step Timer &amp; Routines">
+    <meta name="twitter:description" content="A Chrome extension that times any routine step by step and notifies you as each step ends. No site access, no account, no tracking.">
+    <meta name="twitter:image" content="https://ticktockfocus.com/assets/icon-512.png">
+    <meta name="twitter:image:alt" content="TickTockFocus icon: a ring of three colored segments around a clock hand">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "TickTockFocus",
+        "description": "A Chrome extension that times any routine step by step and notifies you as each step ends. No site access, no account, no tracking.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Chrome",
+        "url": "https://ticktockfocus.com/",
+        "downloadUrl": "https://chromewebstore.google.com/detail/nealkefeifpkmkbfcfbkffdgnlohjbae",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
   </head>
   <body>
-    <main>
-      <h1>Tick Tock Focus</h1>
-      <p>Stay focused, one tick at a time.</p>
-      <p><a href="/privacy.html">Privacy Policy</a></p>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="page-container site-header-content">
+        <a class="brand-link" href="/">
+          <img class="brand-icon" src="/assets/icon-32.png" srcset="/assets/icon-32.png 1x, /assets/icon-128.png 4x" width="32" height="32" alt="">
+          TickTockFocus
+        </a>
+        <nav class="site-navigation" aria-label="Main">
+          <ul class="site-navigation-list">
+            <li><a class="site-navigation-link" href="/#features">Features</a></li>
+            <li><a class="site-navigation-link" href="/privacy.html">Privacy</a></li>
+          </ul>
+        </nav>
+        <a class="button button-primary button-compact site-header-call-to-action" href="https://chromewebstore.google.com/detail/nealkefeifpkmkbfcfbkffdgnlohjbae">Add to Chrome</a>
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="hero-section" aria-labelledby="hero-heading">
+        <div class="page-container hero-layout">
+          <div>
+            <p class="section-label">Multi-step timer for Chrome™</p>
+            <h1 id="hero-heading">Any routine, one click.</h1>
+            <p class="lead-text hero-lead">Build a timer from your own steps (focus blocks, breaks, study sessions) and get a Chrome notification as each one ends.</p>
+            <div class="button-group">
+              <a class="button button-primary button-large" href="https://chromewebstore.google.com/detail/nealkefeifpkmkbfcfbkffdgnlohjbae">Add to Chrome — it's free</a>
+              <a class="button button-secondary" href="https://github.com/mist941/tick-tock-focus">View source on GitHub</a>
+            </div>
+            <p class="trust-line">No site access<span class="trust-separator" aria-hidden="true">·</span>No account<span class="trust-separator" aria-hidden="true">·</span>No tracking</p>
+          </div>
+
+          <figure class="preset-preview">
+            <p class="preset-preview-label">Example preset</p>
+            <div class="preset-preview-header">
+              <p class="preset-preview-name" id="preview-preset-name">Deep work</p>
+              <p class="preset-preview-total">5 steps · 2 h 30 min</p>
+            </div>
+            <ol class="segment-bar segment-bar-with-notifications" aria-labelledby="preview-preset-name">
+              <li class="segment" style="--segment-minutes: 50"><span class="segment-label">50<span class="segment-unit"> min</span></span></li>
+              <li class="segment" style="--segment-minutes: 10"><span class="segment-label">10<span class="segment-unit"> min</span></span></li>
+              <li class="segment" style="--segment-minutes: 50"><span class="segment-label">50<span class="segment-unit"> min</span></span></li>
+              <li class="segment" style="--segment-minutes: 10"><span class="segment-label">10<span class="segment-unit"> min</span></span></li>
+              <li class="segment" style="--segment-minutes: 30"><span class="segment-label">30<span class="segment-unit"> min</span></span></li>
+            </ol>
+            <figcaption class="preset-preview-caption"><span class="notification-icon" aria-hidden="true"></span>A notification as each step ends</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="page-section page-section-alternate" aria-labelledby="how-it-works-heading">
+        <div class="page-container">
+          <div class="section-heading">
+            <h2 id="how-it-works-heading">How it works</h2>
+          </div>
+          <ol class="step-list">
+            <li class="step-card">
+              <h3>Build a preset</h3>
+              <p>Name it and add up to 50 steps, each from 30 seconds to just under 24 hours. Drag them, or use the arrow buttons, to put them in order.</p>
+            </li>
+            <li class="step-card">
+              <h3>Start it in one click</h3>
+              <p>Pick the preset and press Start; next time, it's already selected. Close the popup and the timer keeps going.</p>
+            </li>
+            <li class="step-card">
+              <h3>Get notified at every step</h3>
+              <p>A Chrome notification appears as each step ends. The last one tells you the whole routine is done.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="page-section" aria-labelledby="examples-heading">
+        <div class="page-container">
+          <div class="section-heading">
+            <h2 id="examples-heading">Example routines</h2>
+            <p class="lead-text">Pomodoro is just one routine. Here are a few more you can build. They're examples, not built-in templates: you set up each one yourself in the Presets tab.</p>
+          </div>
+          <ul class="routine-list">
+            <li class="routine-card">
+              <div class="routine-header">
+                <h3 class="routine-name" id="routine-pomodoro">Pomodoro, four rounds</h3>
+                <p class="routine-total">8 steps · 2 h 10 min</p>
+              </div>
+              <ol class="segment-bar" aria-labelledby="routine-pomodoro">
+                <li class="segment" style="--segment-minutes: 25"><span class="segment-label">25<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 5"><span class="segment-label">5<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 25"><span class="segment-label">25<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 5"><span class="segment-label">5<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 25"><span class="segment-label">25<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 5"><span class="segment-label">5<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 25"><span class="segment-label">25<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 15"><span class="segment-label">15<span class="segment-unit"> min</span></span></li>
+              </ol>
+              <p class="routine-description">Four 25-minute focus blocks with 5-minute breaks between them, then a 15-minute long break.</p>
+            </li>
+            <li class="routine-card">
+              <div class="routine-header">
+                <h3 class="routine-name" id="routine-52-17">52/17</h3>
+                <p class="routine-total">2 steps · 1 h 9 min</p>
+              </div>
+              <ol class="segment-bar" aria-labelledby="routine-52-17">
+                <li class="segment" style="--segment-minutes: 52"><span class="segment-label">52<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 17"><span class="segment-label">17<span class="segment-unit"> min</span></span></li>
+              </ol>
+              <p class="routine-description">52 minutes of focused work, then a 17-minute break away from the screen.</p>
+            </li>
+            <li class="routine-card">
+              <div class="routine-header">
+                <h3 class="routine-name" id="routine-study">Study session</h3>
+                <p class="routine-total">5 steps · 2 h 10 min</p>
+              </div>
+              <ol class="segment-bar" aria-labelledby="routine-study">
+                <li class="segment" style="--segment-minutes: 45"><span class="segment-label">45<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 10"><span class="segment-label">10<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 45"><span class="segment-label">45<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 10"><span class="segment-label">10<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 20"><span class="segment-label">20<span class="segment-unit"> min</span></span></li>
+              </ol>
+              <p class="routine-description">Read for 45 minutes, take a break, practice for 45, take another break, then spend 20 minutes reviewing.</p>
+            </li>
+            <li class="routine-card">
+              <div class="routine-header">
+                <h3 class="routine-name" id="routine-desk-break">Desk break</h3>
+                <p class="routine-total">3 steps · 8 min</p>
+              </div>
+              <ol class="segment-bar" aria-labelledby="routine-desk-break">
+                <li class="segment" style="--segment-minutes: 2"><span class="segment-label">2<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 5"><span class="segment-label">5<span class="segment-unit"> min</span></span></li>
+                <li class="segment" style="--segment-minutes: 1"><span class="segment-label">1<span class="segment-unit"> min</span></span></li>
+              </ol>
+              <p class="routine-description">Stretch for 2 minutes, go for a 5-minute walk, then rest your eyes for 1 minute.</p>
+            </li>
+          </ul>
+          <p class="routine-note">Words like “focus” and “break” only describe the steps on this page. In the extension, you name the preset, and each step is a duration.</p>
+        </div>
+      </section>
+
+      <section class="page-section page-section-alternate" id="features" aria-labelledby="features-heading">
+        <div class="page-container">
+          <div class="section-heading">
+            <h2 id="features-heading">Features</h2>
+          </div>
+          <ul class="feature-grid">
+            <li class="feature-card">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h10M4 12h16M4 18h7"/></svg>
+              </span>
+              <h3>Multi-step presets</h3>
+              <p>Up to 50 steps per preset, each from 30 seconds to just under 24 hours. Reorder them by dragging or with the arrow buttons.</p>
+            </li>
+            <li class="feature-card">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17v-6a6 6 0 0 1 12 0v6l1.5 2h-15z"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>
+              </span>
+              <h3>A notification at every step</h3>
+              <p>Chrome lets you know as each step ends and when the routine is done, so you can stop checking the clock.</p>
+            </li>
+            <li class="feature-card">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg>
+              </span>
+              <h3>Keeps running in the background</h3>
+              <p>Close the popup or restart Chrome and the timer keeps its schedule. If a routine ended while Chrome was closed, you get one notification with the time it finished.</p>
+            </li>
+            <li class="feature-card">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.5-4.5L4 8M4 4v4h4M4 13a8 8 0 0 0 14.5 4.5L20 16M20 20v-4h-4"/></svg>
+              </span>
+              <h3>Presets that follow you</h3>
+              <p>With Chrome Sync on, your presets and settings reach your other computers through your Google account. They never pass through a server of ours, because there isn't one.</p>
+            </li>
+            <li class="feature-card">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8" stroke-opacity="0.35"/><path d="M12 4a8 8 0 0 1 6.9 12"/><circle cx="12" cy="4" r="1" fill="currentColor"/><circle cx="18.9" cy="16" r="1" fill="currentColor"/></svg>
+              </span>
+              <h3>Progress at a glance</h3>
+              <p>The popup shows a countdown, a progress ring with a marker between steps, and a clock you can switch between 12- and 24-hour time.</p>
+            </li>
+            <li class="feature-card">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6.5 10h.01M10.5 10h.01M14.5 10h.01M17.5 10h.01M7.5 14h9"/></svg>
+              </span>
+              <h3>Keyboard and screen reader friendly</h3>
+              <p>Labeled controls, full keyboard support with arrow buttons as an alternative to dragging, and status messages announced to screen readers.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="page-section" aria-labelledby="privacy-heading">
+        <div class="page-container">
+          <div class="section-heading">
+            <h2 id="privacy-heading">Private by design</h2>
+            <p class="lead-text">TickTockFocus uses three Chrome permissions and nothing else. It makes no network requests of its own, and there's no account or analytics.</p>
+          </div>
+          <div class="privacy-layout">
+            <div class="privacy-panel">
+              <h3>Permissions it uses</h3>
+              <dl class="permission-list">
+                <div class="permission-item">
+                  <dt class="permission-name"><code>storage</code></dt>
+                  <dd class="permission-reason">Saves your presets, your clock format, and the state of the running timer.</dd>
+                </div>
+                <div class="permission-item">
+                  <dt class="permission-name"><code>alarms</code></dt>
+                  <dd class="permission-reason">Wakes the extension when a step ends, even when the popup is closed.</dd>
+                </div>
+                <div class="permission-item">
+                  <dt class="permission-name"><code>notifications</code></dt>
+                  <dd class="permission-reason">Shows a notification as each step ends. It's the only permission Chrome lists when you add the extension: “Display notifications.”</dd>
+                </div>
+              </dl>
+            </div>
+            <div class="privacy-panel">
+              <h3>What it never asks for</h3>
+              <ul class="not-requested-list">
+                <li class="not-requested-item">Access to the websites you visit</li>
+                <li class="not-requested-item">Your browsing history</li>
+                <li class="not-requested-item">The content of any page you open</li>
+                <li class="not-requested-item">A sign-in or account</li>
+              </ul>
+            </div>
+          </div>
+          <p><a href="/privacy.html">Read the privacy policy</a></p>
+        </div>
+      </section>
+
+      <!-- Screenshots: add images to /assets/screenshots/ and a section here. -->
+
+      <section class="page-section page-section-alternate closing-call-to-action" aria-labelledby="closing-heading">
+        <div class="page-container text-content">
+          <h2 id="closing-heading">Put your next routine on a timer.</h2>
+          <p class="lead-text">Free and open source under the Apache 2.0 license. Works in Chrome 120 or later.</p>
+          <div class="button-group">
+            <a class="button button-primary button-large" href="https://chromewebstore.google.com/detail/nealkefeifpkmkbfcfbkffdgnlohjbae">Add to Chrome — it's free</a>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="page-container">
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="/privacy.html">Privacy policy</a></li>
+            <li><a href="https://github.com/mist941/tick-tock-focus">Source on GitHub</a></li>
+            <li><a href="https://github.com/mist941/tick-tock-focus/issues">Report an issue</a></li>
+            <li><a href="mailto:support@ticktockfocus.com">support@ticktockfocus.com</a></li>
+          </ul>
+        </nav>
+        <p class="footer-legal">© 2025–2026 Ivan Statkevich <span aria-hidden="true">·</span> <a href="https://github.com/mist941/tick-tock-focus/blob/main/LICENSE">Apache 2.0</a></p>
+        <p class="footer-trademark">Chrome is a trademark of Google LLC.</p>
+      </div>
+    </footer>
   </body>
 </html>
