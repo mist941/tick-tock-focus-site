@@ -51,6 +51,7 @@
   --duration-transition: 150ms;
 
   --icon-bell: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 17v-6a6 6 0 0 1 12 0v6l1.5 2h-15z'/%3E%3Cpath d='M10 21a2 2 0 0 0 4 0'/%3E%3C/svg%3E");
+  --icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
   --icon-not-allowed: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M5.7 5.7l12.6 12.6'/%3E%3C/svg%3E");
 }
 
@@ -845,4 +846,179 @@ code {
 
 .closing-call-to-action .button-group {
   justify-content: center;
+}
+
+/* Privacy policy */
+
+.policy-header {
+  margin-bottom: var(--space-large);
+}
+
+.policy-meta {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+}
+
+.policy-summary {
+  margin-bottom: var(--space-extra-large);
+  padding: var(--space-large);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  background-color: var(--color-surface);
+}
+
+.policy-summary h2 {
+  margin-bottom: var(--space-medium);
+  font-size: var(--font-size-heading-3);
+}
+
+.check-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.check-list li {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.check-list li + li {
+  margin-top: var(--space-small);
+}
+
+.check-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.2em;
+  left: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: var(--color-link);
+  -webkit-mask: var(--icon-check) center / contain no-repeat;
+  mask: var(--icon-check) center / contain no-repeat;
+}
+
+.policy-content section + section {
+  margin-top: var(--space-extra-large);
+}
+
+.policy-content h2 {
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+}
+
+.policy-content ul:not([class]) {
+  padding-left: 1.25rem;
+}
+
+.policy-content ul:not([class]) li + li {
+  margin-top: var(--space-small);
+}
+
+.table-container {
+  margin-bottom: var(--space-medium);
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+}
+
+.data-table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: var(--font-size-small);
+}
+
+.data-table th,
+.data-table td {
+  padding: var(--space-small) var(--space-medium);
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.data-table thead th {
+  background-color: var(--color-surface);
+}
+
+.data-table tbody th {
+  font-weight: var(--font-weight-medium);
+}
+
+.data-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.data-table p {
+  margin-bottom: var(--space-small);
+}
+
+.data-table p:last-child {
+  margin-bottom: 0;
+}
+
+.cell-label {
+  display: none;
+}
+
+@media (max-width: 40rem) {
+  .data-table,
+  .data-table tbody,
+  .data-table tr,
+  .data-table th,
+  .data-table td {
+    display: block;
+  }
+
+  .data-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .data-table th,
+  .data-table td {
+    border-bottom: 0;
+  }
+
+  .data-table tbody tr {
+    padding-block: var(--space-small) var(--space-medium);
+  }
+
+  .data-table tbody tr + tr {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .data-table tbody th {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .data-table td {
+    padding-block: var(--space-extra-small);
+  }
+
+  .cell-label {
+    display: block;
+    margin-bottom: var(--space-extra-small);
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+}
+
+.permission-list + p {
+  margin-top: var(--space-medium);
+}
+
+@media (forced-colors: active) {
+  .check-list li::before {
+    background-color: CanvasText;
+    forced-color-adjust: none;
+  }
 }
