@@ -9,8 +9,13 @@ Source of [ticktockfocus.com](https://ticktockfocus.com): the landing page and p
 | `index.html` | Landing page |
 | `privacy.html` | Privacy policy (linked from the Chrome Web Store listing, so keep this URL) |
 | `404.html` | Not-found page, served by GitHub Pages |
+| `robots.txt`, `sitemap.xml` | Crawler rules and the list of pages to index |
+| `favicon.ico` | Fallback icon for browsers and tools that request `/favicon.ico` |
+| `uninstall.html` | Opened by the extension after removal (`chrome.runtime.setUninstallURL`). Keep it `noindex`, out of the sitemap and free of scripts, forms and analytics |
 | `assets/styles.css` | Shared styles: design tokens, light and dark themes, all components |
 | `assets/icon-*.png` | Site icon, copied from the extension |
+| `assets/og-image.png` | 1200×630 social preview card (Open Graph, Twitter) |
+| `assets/popup-1.1.png` | Screenshot of the extension popup, used in the structured data |
 | `CNAME`, `.nojekyll` | GitHub Pages configuration |
 
 ## Run locally
