@@ -9,6 +9,8 @@ Source of [ticktockfocus.com](https://ticktockfocus.com): the landing page and p
 | `index.html` | Landing page |
 | `privacy.html` | Privacy policy (linked from the Chrome Web Store listing, so keep this URL) |
 | `404.html` | Not-found page, served by GitHub Pages |
+| `robots.txt`, `sitemap.xml` | Crawler rules and the list of pages to index |
+| `favicon.ico` | Fallback icon for browsers and tools that request `/favicon.ico` |
 | `assets/styles.css` | Shared styles: design tokens, light and dark themes, all components |
 | `assets/icon-*.png` | Site icon, copied from the extension |
 | `CNAME`, `.nojekyll` | GitHub Pages configuration |
