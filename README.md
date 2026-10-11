@@ -11,6 +11,7 @@ Source of [ticktockfocus.com](https://ticktockfocus.com): the landing page and p
 | `404.html` | Not-found page, served by GitHub Pages |
 | `robots.txt`, `sitemap.xml` | Crawler rules and the list of pages to index |
 | `favicon.ico` | Fallback icon for browsers and tools that request `/favicon.ico` |
+| `uninstall.html` | Opened by the extension after removal (`chrome.runtime.setUninstallURL`). Keep it `noindex`, out of the sitemap and free of scripts, forms and analytics |
 | `assets/styles.css` | Shared styles: design tokens, light and dark themes, all components |
 | `assets/icon-*.png` | Site icon, copied from the extension |
 | `assets/og-image.png` | 1200×630 social preview card (Open Graph, Twitter) |
