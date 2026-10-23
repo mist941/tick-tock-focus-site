@@ -51,7 +51,7 @@
         <article class="page-container text-content">
           <header class="policy-header">
             <h1>Privacy Policy</h1>
-            <p class="policy-meta">Effective date: 2026-10-11</p>
+            <p class="policy-meta">Effective date: 2026-10-23</p>
           </header>
 
           <section class="policy-summary" aria-labelledby="summary-heading">
@@ -61,7 +61,7 @@
               <li>Nothing is sent to the developer. The extension makes no network requests.</li>
               <li>When you remove the extension, Chrome opens a short feedback page on this website. Nothing about you is sent with it.</li>
               <li>No data is sold or transferred to anyone.</li>
-              <li>Your presets stay in Chrome's own storage. If you turn on Chrome Sync, Google syncs them between your browsers.</li>
+              <li>Your routines and settings stay in Chrome's own storage. If you turn on Chrome Sync, Google syncs them between your browsers.</li>
             </ul>
           </section>
 
@@ -87,7 +87,7 @@
                   </thead>
                   <tbody role="rowgroup">
                     <tr role="row">
-                      <th scope="row" role="rowheader">Your presets (each preset's name and steps) and settings (12- or 24-hour clock)</th>
+                      <th scope="row" role="rowheader">Your routines (each routine's name, its steps with their names, kinds and durations, and its repeat groups) and settings (whether the next step starts automatically or waits for you, 12- or 24-hour time, sound on or off, its tone and volume, and whether the toolbar icon shows the time)</th>
                       <td role="cell">
                         <span class="cell-label" aria-hidden="true">Where it's kept</span>
                         <p><code>chrome.storage.sync</code></p>
@@ -100,7 +100,7 @@
                       </td>
                     </tr>
                     <tr role="row">
-                      <th scope="row" role="rowheader">The running timer (its end time, total length, and a copy of the preset's name and steps) and the preset you last selected</th>
+                      <th scope="row" role="rowheader">The running timer (its state, the times of its steps, and a copy of the routine's steps)</th>
                       <td role="cell">
                         <span class="cell-label" aria-hidden="true">Where it's kept</span>
                         <p><code>chrome.storage.local</code></p>
@@ -110,9 +110,33 @@
                         <p>No. It stays in this browser.</p>
                       </td>
                     </tr>
+                    <tr role="row">
+                      <th scope="row" role="rowheader">How many routines you've finished, your answer to the rating prompt (“later”, “rated” or “declined”), and a flag so the “New in 1.2” banner shows only once after updating</th>
+                      <td role="cell">
+                        <span class="cell-label" aria-hidden="true">Where it's kept</span>
+                        <p><code>chrome.storage.local</code></p>
+                      </td>
+                      <td role="cell">
+                        <span class="cell-label" aria-hidden="true">Leaves this browser?</span>
+                        <p>No. It's never synced or sent anywhere.</p>
+                      </td>
+                    </tr>
+                    <tr role="row">
+                      <th scope="row" role="rowheader">Which buttons the notification on screen has</th>
+                      <td role="cell">
+                        <span class="cell-label" aria-hidden="true">Where it's kept</span>
+                        <p><code>chrome.storage.session</code></p>
+                        <p>Kept in memory and cleared when Chrome closes.</p>
+                      </td>
+                      <td role="cell">
+                        <span class="cell-label" aria-hidden="true">Leaves this browser?</span>
+                        <p>No. It stays in this browser.</p>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
+              <p>The number of finished routines and your answer to the rating prompt are used only to decide when to ask you, once, to rate the extension. Nothing checks whether you left a rating.</p>
             </section>
 
             <section aria-labelledby="permissions-heading">
@@ -120,7 +144,7 @@
               <dl class="permission-list">
                 <div class="permission-item">
                   <dt class="permission-name"><code>storage</code></dt>
-                  <dd class="permission-reason">Saves your presets and settings, and remembers the running timer so it keeps going when you close the popup or restart Chrome.</dd>
+                  <dd class="permission-reason">Saves your routines and settings and the counters for the rating prompt, and remembers the running timer so it keeps going when you close the popup or restart Chrome.</dd>
                 </div>
                 <div class="permission-item">
                   <dt class="permission-name"><code>alarms</code></dt>
@@ -130,6 +154,10 @@
                   <dt class="permission-name"><code>notifications</code></dt>
                   <dd class="permission-reason">Shows a notification when each step ends and when the whole routine is finished.</dd>
                 </div>
+                <div class="permission-item">
+                  <dt class="permission-name"><code>offscreen</code></dt>
+                  <dd class="permission-reason">Plays the end-of-step sound from a hidden extension page, because the extension's background service worker can't play audio. It only plays sound files bundled with the extension.</dd>
+                </div>
               </dl>
               <p>The extension has no host permissions and no content scripts, so it can't read or change any website.</p>
             </section>
@@ -137,7 +165,7 @@
             <section aria-labelledby="does-not-heading">
               <h2 id="does-not-heading">What the extension doesn't do</h2>
               <ul>
-                <li>It makes no network requests. Chrome Sync, if you turn it on, is handled by Chrome itself. The only page it opens on its own is the feedback page on ticktockfocus.com after you remove it; links in the Usage tab open only when you click them.</li>
+                <li>It makes no network requests. Chrome Sync, if you turn it on, is handled by Chrome itself. The only pages it opens on its own are its welcome page after you install it (part of the extension, not this website) and ticktockfocus.com/uninstall.html after you remove it. Links in Settings, on the welcome page and in the rating prompt (Rate on Chrome Web Store) open only when you click them.</li>
                 <li>No analytics, telemetry, or tracking of any kind.</li>
                 <li>No ads.</li>
                 <li>No cookies.</li>
@@ -149,10 +177,10 @@
             <section aria-labelledby="control-heading">
               <h2 id="control-heading">Your control over your data</h2>
               <ul>
-                <li><strong>Delete a preset:</strong> in the Presets tab, select the × button next to it. The preset is removed from the extension's storage and, when Chrome Sync is on, from your other synced browsers too.</li>
-                <li><strong>Stop syncing:</strong> turn off Chrome Sync in Chrome's settings. Presets you save after that stay in this browser.</li>
+                <li><strong>Delete a routine:</strong> in the Routines tab, open the routine's ⋯ menu and choose Delete. You can undo it for a few seconds. The routine is removed from the extension's storage and, when Chrome Sync is on, from your other synced browsers too.</li>
+                <li><strong>Stop syncing:</strong> turn off Chrome Sync in Chrome's settings. Routines and settings you save after that stay in this browser.</li>
                 <li><strong>Clear the running timer:</strong> pressing Stop clears its state. It's also cleared when a run finishes.</li>
-                <li><strong>Uninstall:</strong> removing the extension deletes its local data (<code>chrome.storage.local</code>) from this browser. To remove synced presets from your other browsers too, delete them in the extension before you uninstall it. After removal, Chrome opens ticktockfocus.com/uninstall.html, with links to email feedback or report a bug. You can simply close it; nothing is sent unless you choose to write to us.</li>
+                <li><strong>Uninstall:</strong> removing the extension deletes its local data (<code>chrome.storage.local</code>) from this browser, including the number of finished routines and your rating answer. To remove synced routines from your other browsers too, delete them in the extension before you uninstall it. After removal, Chrome opens ticktockfocus.com/uninstall.html, with links to email feedback or report a bug. You can simply close it; nothing is sent unless you choose to write to us.</li>
               </ul>
             </section>
 

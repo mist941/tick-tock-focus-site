@@ -957,6 +957,11 @@ code {
   margin-bottom: 0;
 }
 
+/* Long row headers would otherwise squeeze the storage area names until they break mid-word. */
+.data-table code {
+  white-space: nowrap;
+}
+
 .cell-label {
   display: none;
 }
