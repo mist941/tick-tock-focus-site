@@ -15,7 +15,7 @@ Source of [ticktockfocus.com](https://ticktockfocus.com): the landing page and p
 | `assets/styles.css` | Shared styles: design tokens, light and dark themes, all components |
 | `assets/icon-*.png` | Site icon, copied from the extension |
 | `assets/og-image.png` | 1200×630 social preview card (Open Graph, Twitter) |
-| `assets/popup-1.1.png` | Screenshot of the extension popup, used in the structured data |
+| `assets/popup-1.2.png` | Screenshot of the extension popup, used in the structured data |
 | `CNAME`, `.nojekyll` | GitHub Pages configuration |
 
 ## Run locally
